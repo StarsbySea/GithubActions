@@ -1,7 +1,8 @@
 # Set Global Preference
 $Global:ErrorActionPreference = 'Continue'
-$Global:VerbosePreference = 'Continue'
-
+if ($env:DEBUG -eq '1') {
+    $Global:VerbosePreference = 'Continue'
+}
 # Import all modules
 Join-Path $PSScriptRoot 'src' | Get-ChildItem -File | Select-Object -ExpandProperty Fullname | Import-Module
 
