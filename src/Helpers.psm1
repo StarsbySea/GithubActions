@@ -115,7 +115,9 @@ function Initialize-NeededConfiguration {
     }
 
     # Log all environment variables
-    Write-Log 'Environment' (Get-EnvironmentVariable)
+    if ($env:DEBUG -eq '1') {
+        Write-Log 'Environment' (Get-EnvironmentVariable)
+    }
 }
 
 function Get-Manifest {
